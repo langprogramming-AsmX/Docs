@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+</head>
+<body>
+    <!-- <div class="wrapper"> -->
+        <span class="h1">Documentation AsmX</span>
+        <br />
+<strong>
+<pre class="asmX">
+    basic program in the AsmX programming language<br>
+<code>
+    # Copyright (c) 2023
+    # GitHub (E5war5IT)
+    # ./examples/hello.asmX
+    @set hello String "Hello AsmX!"; 
+    
+    @memory hello  0x01  # write to memory
+    @address 0x01 txt # define address of the memory
+    
+    @Route  txt 0x01 # route
+    @Stack  0x01  # stack set point with address
+    @Invoke 0x04
+    
+    @Invoke 0x80 # call kernel
+</code>
+</pre>
+</strong>
+
+        <pre class="newpage">
+            <span id="page-2"></span>
+            Table of Contents
+            <a href="#set">1.</a> @set ........................... <a href="#page-3">3</a>
+            <a href="#memory">2.</a> @memory ........................ <a href="#page-4">4</a>
+            <a href="#address">3.</a> @address ....................... <a href="#page-5">5</a>
+            <br>
+            <span class="grey">[Page 2]</span>
+        </pre>
+        <hr class="noprint">
+
+        <div>
+            <pre class="newpage">
+            <span id="page-3"></span>
+            <span class="h1"><span id="set">1.</span> Set variable</span>
+            This is a tutorial for those who want to learn the asmx programming language. Let's start simple.
+            A stack is like a bank cabinet with cases and the data in them is replenished from the bottom up. 
+            when an instruction is executed, the results can be pushed onto the stack.
+            The register is like a keychain or a ticket by which we can access it and get something.
+            Memory is a kind of closet with data that is stored for some time.
+            Let's start with something simpler, namely creating a variable. 
+            When a variable is created, the result is not written to memory. 
+            We need to use the <span class="code">@set</span> statement. Its syntax is:
+            <span class="code">@set name &lt;Type&gt; value</span>
+            when accessing the register <span class="code">$arg0</span>, you can find out the name of the variable.
+            <span class="code">$arg1</span> - variable type
+            <span class="code">$arg2</span> - variable value
+            When this instruction is executed, the value of the variable will be written onto the stack.
+            Variable assignment example:
+            <strong>
+                <pre><code>
+                    <span class="hljs-meta">@set</span> txt String "Hello world!"
+                </code></pre>
+            </strong>
+            By default, if you don't specify a type, it will be Int:
+            <strong>
+                <pre><code class="hljs language-perl">
+                    <span class="hljs-meta">@set</span> age 24 # default type Int
+                </code></pre>
+            </strong>
+            Types that can be assigned to variables:
+            <span class="code">String</span> - string type
+            <span class="code">Bool</span> - boolean type that can contain true or false value
+            <span class="code">Int</span> - a numeric type containing an unsigned integer.
+            <span class="code">Float</span> - a numeric type containing an integer with a signed fractional part.
+            <span class="code">List</span> - Sips of cells, each of them contains its own data.
+            An example of assigning a variable to all types:
+            <strong>
+                <pre><code>
+                    @set age  14; #  default type Int
+                    @set name String "E5war5IT"; 
+                    @set isAge Bool true;
+                    @set rating Float 4.5;
+                    @set stars Int 450;
+                </code></pre>
+            </strong>
+        </pre>
+        </div>
+
+        <hr class="noprint">
+
+        <pre class="newpage">
+            <span id="page-4"></span>
+            <span class="h1"><span id="memory">2.</span>Memory / Write in memory</span>
+        </pre>
+
+        <hr class="noprint">
+
+        <pre class="newpage">
+            <span id="page-5"></span>
+        </pre>
+    <!-- </div> -->
+
+    <!-- https://www.rfc-editor.org/rfc/rfc5646#section-2 -->
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="./main.js"></script>
+</body>
+</html>
